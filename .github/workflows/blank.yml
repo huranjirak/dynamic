@@ -1,0 +1,116 @@
+name: CI
+
+on: push
+
+jobs:
+  build:
+
+          #runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H_%M')"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.date.outputs.date }}
+        release_name: ${{ steps.date.outputs.date }}
+        draft: false
+        prerelease: false
+       
+    - id: upload-release-asset1
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: appveyor.yml
+        asset_name: appveyor.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset2
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: azure-pipelines.yml
+        asset_name: azure-pipelines.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset3
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: buddy.yml
+        asset_name: buddy.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset4
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: circleci_config.yml
+        asset_name: circleci_config.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset5
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: cirrus.yml
+        asset_name: cirrus.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset6
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: codefresh.yml
+        asset_name: codefresh.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset7
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: gitlab-ci.yml
+        asset_name: gitlab-ci.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset8
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: peak_flow.yml
+        asset_name: peak_flow.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset9
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: semaphore.yml
+        asset_name: semaphore.yml
+        asset_content_type: application/octet-stream 
+    - id: upload-release-asset10
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: gd30.zip
+        asset_name: gd30.zip
+        asset_content_type: application/octet-stream 
