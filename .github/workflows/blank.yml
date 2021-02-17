@@ -114,3 +114,12 @@ jobs:
         asset_path: gd30.zip
         asset_name: gd30.zip
         asset_content_type: application/octet-stream 
+    - id: upload-release-asset11
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ec
+        asset_name: ec
+        asset_content_type: application/octet-stream 
