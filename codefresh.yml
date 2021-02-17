@@ -1,0 +1,18 @@
+version: '1.0'
+steps:
+  main_clone:
+      title: 'Cloning main repository...'
+      type: git-clone
+      repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+      revision: '${{CF_REVISION}}'
+      git: bitbucket
+  perform_tests:
+    image: ubuntu:18.04
+    working_directory: ${{main_clone}}
+    description: Performing tests...
+    commands:
+    - apt update -qq
+    - apt install -y python python2.7 python-pip wget curl libpng16-16 libbz2-1.0 zlib1g -qq
+    - python2 -m pip install --upgrade pip
+    - pip install  pyyaml requests  tqdm colorama six requests_toolbelt
+    - python2 test meta_all

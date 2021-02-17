@@ -1,0 +1,11 @@
+image: Ubuntu
+
+stack: python 2.7
+install:
+- pip2 install pyyaml requests  tqdm colorama six requests_toolbelt
+
+test_script:
+- python2 test meta_all
+
+build: off
+

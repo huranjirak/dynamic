@@ -1,0 +1,29 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - readme    
+    exclude:    
+    - test
+jobs:
+- job: myjob
+  timeoutInMinutes: 300
+
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '2.7'
+  
+  - script: python -m pip install --upgrade pip
+    displayName: 'Install dependencies'
+  
+  - script: pip install pyyaml requests  tqdm colorama six requests_toolbelt
+    displayName: 'Install requirements'
+    
+  - script:  python2 test meta_all
+    displayName: el
