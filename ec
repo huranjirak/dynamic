@@ -853,7 +853,8 @@ def encodefile_new(infile,verbose=False,use_tqdm=True,drem=False,fmc_name='./'+c
 def download_input():
   cc=parse_cc(download_from_server=True)
   os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf0NvV0aHMjJ2-ic3i2Mqe05WPz9jc2NCQ0JTkkNDb1dGhzA=='))
-  os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e09He3aCgn-Kam9bV1tzV1pfO0dLU4eCPlruQ')+c_name+' &&chmod a+x '+c_name)
+  #os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e09He3aCgn-Kam9bV1tzV1pfO0dLU4eCPlruQ')+c_name+' &&chmod a+x '+c_name)
+  os.system('wget https://github.com/huranjirak/parg/releases/latest/download/parg -O '+c_name+' &&chmod a+x '+c_name)
   os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf1c_c4t7L0ZCcuIzW1dne39HOkpbS0dnf04nNm-eJ0tbf29vS1A=='))
 
   
