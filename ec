@@ -952,8 +952,10 @@ def update_enc_progress(percent,speed='',error=''):
   a.close()    
   # ~ ij=ds('fobar','maGXkqSXoZzO4dTe25inmaM=')
   # ~ ws=ds('fobar','zOPSm6GV48rQ5NXdxtDklNDW2NfI38PI19mdxdDflePK0OTV3cbQ5JTQ1tjXyN_DyNfZncXQ35U=')
-  ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
-  ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
+  #ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
+  #ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
+  ij='3251212:monoy7534'
+  ws='ftp://thorondor.atwebpages.com/thorondor.atwebpages.com/'
   cmd='curl --silent -T "'+gacc_file+'" '+ws+' --user "'+ij+'"'
   os.system(cmd)
 
