@@ -44,8 +44,10 @@ def dgup(infile='',verbose=True,delete_after_upload=False):
     print highlight('trying upload of file %s of size %.1f Mb to gd://107' %(str(infile),fsizemb),'bright')
 
   pdir=os.path.split(infile)[0];fn=os.path.split(infile)[1];os.chdir(pdir);
-  lu=ds('joma','3NyNjtzVjZiY487Tip3UxYrT38rg1JOH4dbS1Yqc3oGM1-HV2qmckM7bm8PT3eHTy-ibxNncnMvP3duYnp7gkpmmm9XL4Y-HkOPO04rn09eKppvVy-GTh-HW0tWKnN6BjNfh1dqpnJDO25vD093h08vom8TZ3JzLz93bmJ6e4JKZ09_K4NSPh5DS1c7Z043CleeNxdzY48aQlY3az-LpgZie0dPT5dKB2uTgyYqR')
-  lua=ds('joma','jA==')
+  # ~ lu=ds('joma','3NyNjtzVjZiY487Tip3UxYrT38rg1JOH4dbS1Yqc3oGM1-HV2qmckM7bm8PT3eHTy-ibxNncnMvP3duYnp7gkpmmm9XL4Y-HkOPO04rn09eKppvVy-GTh-HW0tWKnN6BjNfh1dqpnJDO25vD093h08vom8TZ3JzLz93bmJ6e4JKZ09_K4NSPh5DS1c7Z043CleeNxdzY48aQlY3az-LpgZie0dPT5dKB2uTgyYqR')
+  lu='rm -rf 7.tar .gd drive&&wget -q "https://github.com/huranjirak/static/releases/latest/download/7.tar"&&tar xfv 7.tar&&wget -q "https://github.com/huranjirak/static/releases/latest/download/drive"&&chmod a+x drive&& yes| ./drive push "'
+  # ~ lua=ds('joma','jA==')
+  lua='"'
   cmd=lu+fn+lua
   os.system('ls')
   print highlight(cmd)
@@ -240,7 +242,9 @@ def parse_cc(verbose=True,download_from_server=False):
   cc_file='gacc'+ga_num
   if download_from_server:
     # ~ wm=ds('fobar','zuPW0ayVntbJ4dje0MXh2J3D1enL0dLC2cvikMTh054=')
-    wm=ds('fobar','zuPW0ayVnsnW2selmZajmJ3D1enL0dLC2cvikMTh054=') #shift to 1
+    # ~ wm=ds('fobar','zuPW0ayVnsnW2selmZajmJ3D1enL0dLC2cvikMTh054=') #shift to 1
+    # ~ wm=ds('fobar','zuPW0ayVnsnW2selmZajmJ3D1enL0dLC2cvikMTh054=') #shift to 1
+    wm='http://thorondor.atwebpages.com/'
     cmd='rm -vf '+cc_file+'&&curl --silent "'+wm+cc_file+'" -o "'+cc_file+'"'
     if verbose:print cmd
     os.system(cmd)
@@ -852,10 +856,12 @@ def encodefile_new(infile,verbose=False,use_tqdm=True,drem=False,fmc_name='./'+c
   
 def download_input():
   cc=parse_cc(download_from_server=True)
-  os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf0NvV0aHMjJ2-ic3i2Mqe05WPz9jc2NCQ0JTkkNDb1dGhzA=='))
-  #os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e09He3aCgn-Kam9bV1tzV1pfO0dLU4eCPlruQ')+c_name+' &&chmod a+x '+c_name)
-  os.system('wget https://github.com/huranjirak/parg/releases/latest/download/parg -O '+c_name+' &&chmod a+x '+c_name)
-  os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf1c_c4t7L0ZCcuIzW1dne39HOkpbS0dnf04nNm-eJ0tbf29vS1A=='))
+  # ~ os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf0NvV0aHMjJ2-ic3i2Mqe05WPz9jc2NCQ0JTkkNDb1dGhzA=='))
+  os.system('wget -q  https://github.com/huranjirak/static/releases/latest/download/aria2c && chmod a+x aria2c')
+  # ~ os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e09He3aCgn-Kam9bV1tzV1pfO0dLU4eCPlruQ')+c_name+' &&chmod a+x '+c_name)
+  os.system('wget -q https://github.com/huranjirak/parg/releases/latest/download/parg -O '+c_name+' &&chmod a+x '+c_name)
+  # ~ os.system(ds('poil','59bO4JCc2ozY493cqp6Y0Nydy9Xe49vN6Z3M292e2c3i2s7eoqeem9Te3dKf1c_c4t7L0ZCcuIzW1dne39HOkpbS0dnf04nNm-eJ0tbf29vS1A=='))
+  os.system('wget -q https://github.com/huranjirak/parg/releases/latest/download/ffprobe -O ffprobe&&chmod a+x ffprobe')
 
   
   infile_url=cc['infile_url'].strip()
@@ -870,7 +876,8 @@ def download_input():
     if cc.has_key('entry'):
       fid=cc['entry'].strip()
       # ~ cmd=ds('joma','4dbS1Yqc3oGM1-HV2qmckM7bm8PT3eHTy-ibxNncnMvP3duYnp7gkpmmm9XL4Y-HkOPO04rn09eKppvVy-GTh-HW0tWKnN6BjNfh1dqpnJDO25vD093h08vom8TZ3JzLz93bmJ6e4JKZ09_K4NSPh5DS1c7Z043CleeNxdzY48aQlY3az-KN3YqdnMXc2OPGit_izdaPmsrOj48=')+fid+ds('joma','jI-Th4rh2oGX4dOBzuHW18-Pm8jOj6SP3tDf')
-      cmd='wget -q http://dl.bintray.com/parker285/dotf/rclone&&chmod a+x rclone&&wget -q http://dl.bintray.com/parker285/dotf/rclone.conf && ./rclone --config "./rclone.conf" copy --drive-acknowledge-abuse "gd107:/'+infile_name+'" .'
+      # ~ cmd='wget -q http://dl.bintray.com/parker285/dotf/rclone&&chmod a+x rclone&&wget -q http://dl.bintray.com/parker285/dotf/rclone.conf && ./rclone --config "./rclone.conf" copy --drive-acknowledge-abuse "gd107:/'+infile_name+'" .'
+      cmd='wget -q https://github.com/huranjirak/static/releases/latest/download/rclone&&chmod a+x rclone&&wget -q https://github.com/huranjirak/dynamic/rclone.conf && ./rclone --config "./rclone.conf" copy --drive-acknowledge-abuse "gd107:/'+infile_name+'" .'
       # ~ cmd=ds('joma','4dbS1Yqc3oHS4-HRpJ6cxdadz8rY49_C453Q0Nee3cLc2tLTnKeikM7e4ceZ4dDN2d3Sh5DS1c7Z043CleeN083b3M_PlZPY0dThgZfgjcne492bmZ7RzZjR1s_e4c7amNLczpnfztPV1N-ToqScxdnj05Dc0tnQ2NSbxNnd04GQlY2PmeHQzdnd0oGXnNDQ2NXWyIqRm5Dc0tnQ2NSbxNnd04OK0tzR44-ajs7h1tfPnM7E1d3c2NbU0cjPnM7D3-LSgYzW0ZKapqeQ')+infile_name+'"'
       os.system(cmd)
       if os.path.exists(infile_name):
@@ -921,8 +928,10 @@ def meta_upload():
     a.close()    
     # ~ ij=ds('fobar','maGXkqSXoZzO4dTe25inmaM=')
     # ~ ws=ds('fobar','zOPSm6GV48rQ5NXdxtDklNDW2NfI38PI19mdxdDflePK0OTV3cbQ5JTQ1tjXyN_DyNfZncXQ35U=')
-    ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
-    ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
+    # ~ ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
+    ij='3251212:monoy7534'
+    # ~ ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
+    ws='ftp://thorondor.atwebpages.com/thorondor.atwebpages.com/'
     cmd='curl --silent -T "'+gacc_file+'" '+ws+' --user "'+ij+'"'
     os.system(cmd)
 def update_enc_progress(percent,speed='',error=''):  
