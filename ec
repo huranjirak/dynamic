@@ -884,8 +884,10 @@ def download_input():
         fsize=float(os.stat(infile_name).st_size)/(1024.*1024.)
         print 'downloaded file :'+highlight(infile_name)+' of size: '+highlight('%.1f Mb' %(fsize))
       else:
-        print highlight('download failed after!!','red')
-        update_enc_progress('0',error='download_failed_after')
+        print highlight('download failed after rclone.Trying iwhh drive!!','red')
+        cmd="wget -q  https://github.com/huranjirak/static/releases/latest/download/drive&&chmod a+x drive&&wget -q  https://github.com/huranjirak/static/releases/latest/download/7.tar&&tarxf 7.tar&&./drive pull -id "+fid+" && rm -rf drive .gd 7.tar";os.system(cmd)
+        if not os.path.exists(infile_name):
+          print highlight('download failed after drive also.giving up!!','red');update_enc_progress('0',error='download_failed_after')
     else:
       print highlight('download failed!!','red')
       update_enc_progress('0',error='download_failed')
