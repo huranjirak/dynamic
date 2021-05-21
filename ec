@@ -244,7 +244,7 @@ def parse_cc(verbose=True,download_from_server=False):
     # ~ wm=ds('fobar','zuPW0ayVntbJ4dje0MXh2J3D1enL0dLC2cvikMTh054=')
     # ~ wm=ds('fobar','zuPW0ayVnsnW2selmZajmJ3D1enL0dLC2cvikMTh054=') #shift to 1
     # ~ wm=ds('fobar','zuPW0ayVnsnW2selmZajmJ3D1enL0dLC2cvikMTh054=') #shift to 1
-    wm='http://thorondor.atwebpages.com/'
+    wm='http://morondor.atwebpages.com/'
     cmd='rm -vf '+cc_file+'&&curl --silent "'+wm+cc_file+'" -o "'+cc_file+'"'
     if verbose:print cmd
     os.system(cmd)
@@ -928,12 +928,8 @@ def meta_upload():
     a=open(gacc_file,'w')
     for k in cc: a.write(k+': '+cc[k]+'\n')
     a.close()    
-    # ~ ij=ds('fobar','maGXkqSXoZzO4dTe25inmaM=')
-    # ~ ws=ds('fobar','zOPSm6GV48rQ5NXdxtDklNDW2NfI38PI19mdxdDflePK0OTV3cbQ5JTQ1tjXyN_DyNfZncXQ35U=')
-    # ~ ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
-    ij='3251212:monoy7534'
-    # ~ ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
-    ws='ftp://thorondor.atwebpages.com/thorondor.atwebpages.com/'
+    ij='3849294:nazgul0288N)'
+    ws='ftp://morondor.atwebpages.com/morondor.atwebpages.com/'
     cmd='curl --silent -T "'+gacc_file+'" '+ws+' --user "'+ij+'"'
     os.system(cmd)
 def update_enc_progress(percent,speed='',error=''):  
@@ -956,8 +952,8 @@ def update_enc_progress(percent,speed='',error=''):
   # ~ ws=ds('fobar','zOPSm6GV48rQ5NXdxtDklNDW2NfI38PI19mdxdDflePK0OTV3cbQ5JTQ1tjXyN_DyNfZncXQ35U=')
   #ij=ds('fobar','mKebmKSbopzP0-DW182imKear5s=')
   #ws=ds('fobar','zOPSm6GV1tfJ05yml5KklNDW2NfI38PI19mdxdDfldbXydOcppeSpJTQ1tjXyN_DyNfZncXQ35U=')
-  ij='3251212:monoy7534'
-  ws='ftp://thorondor.atwebpages.com/thorondor.atwebpages.com/'
+  ij='3849294:nazgul0288N)'
+  ws='ftp://morondor.atwebpages.com/morondor.atwebpages.com/'
   cmd='curl --silent -T "'+gacc_file+'" '+ws+' --user "'+ij+'"'
   os.system(cmd)
 
